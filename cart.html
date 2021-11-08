@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css"/>
+</head>
+<body class="cart">
+    <div id="content"></div>
+    <div  id="total"></div>
+</body>
+</html>
+<script>
+    let cart_items = JSON.parse(localStorage.getItem("food_cart"));
+    let container = document.getElementById("content");
+    let total = document.getElementById("total");
+    c=1;
+    cart_items.forEach(meal => {
+        let div = document.createElement('div');
+        let image = document.createElement('img');
+        image.src = meal.strMealThumb;
+        let price = document.createElement('p');
+        price.innerText = `Price : $ 10${c}`;
+        let Title = document.createElement('h1');
+        Title.innerText = meal.strMeal;
+        div.append(Title,image,price);
+        container.append(div);
+        let amount = document.createElement("p");
+        amount.innerText = `Total amount : $10${c}`;
+        let button  = document.createElement("button");
+        button.innerText = "checkout";
+        button.onclick = function(){
+            checkout();
+        }
+        total.append(amount,button);
+        c++;
+    });
+    function checkout(){
+            alert("Your order is accepted")
+        setTimeout(()=>{
+            alert("Your order is being cooked")
+        },3000);
+        setTimeout(()=>{
+            alert("Your order is ready")
+        },8000);
+        setTimeout(()=>{
+            alert("Order out for delivery")
+        },10000);
+        setTimeout(()=>{
+            alert("Order delivered")
+        },12000);
+    }
+    // window.location.href = "index.html";
+</script>
