@@ -27,7 +27,7 @@ function login(e)
         "username": login_details.uname.value,
     }
     let data = JSON.stringify(credentials);
-    console.log(credentials,data);
+    console.log(credentials,data);  
     fetch("https://masai-api-mocker.herokuapp.com/auth/login",
     {
         method : "POST",
