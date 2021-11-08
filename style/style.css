@@ -1,0 +1,14 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+}
+.navbar > p{
+    margin-left: 5%;
+} 
+.user{
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+    margin-right: 5%;
+}
