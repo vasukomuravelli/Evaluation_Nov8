@@ -9,18 +9,34 @@
 </head>
 <body>
     <div id="container"></div>
-    <form class="login">
+    <form class="login" onsubmit="login(event)">
         <input type="text" id="uname" placeholder="Enter your username"/>
         <input type="password" id="pass" placeholder="Ente your password"/>
-        <input type="submit"/>
+        <input type="submit" />
     </form>
 </body>
 </html>
-<script type="module">
-import navbar from "./components/navbar.js";
-let container = document.getElementById("container");
-container.innerHTML = navbar();
+<script>
 let login_details = document.querySelector(".login");
-let username = login_details.uname.value;
-let password = login_details.pass.value;
+let user = document.querySelector(".user>p:nth-child(2)")
+function login(e)
+{
+    e.preventDefault();
+    let credentials = {
+        "password": login_details.pass.value,
+        "username": login_details.uname.value,
+    }
+    let data = JSON.stringify(credentials);
+    console.log(credentials,data);
+    fetch("https://masai-api-mocker.herokuapp.com/auth/login",
+    {
+        method : "POST",
+        body : data,
+        Headers : {"content-type": "Application/json"},
+    }).then((res)=>{
+        return res.json();
+    }).then((res)=>{
+        console.log(res);
+    })
+}
 </script>
