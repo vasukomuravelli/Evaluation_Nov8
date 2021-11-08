@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./style/style.css"/>
 </head>
 <body>
-    <div id="container"></div>
     <div class="register" id="register">
         <input type="text" id = "name" placeholder="Enter your name"/>
         <input type="text" id = "email" placeholder="Enter your Email"/>
@@ -20,10 +19,7 @@
     </div>
 </body>
 </html>
-<script type="module">
-    import navbar from "./components/navbar.js";
-    let container = document.getElementById("container");
-    container.innerHTML = navbar();
+<script>
     let details = document.getElementById("register");
     function register(){
         let userdetails = {
