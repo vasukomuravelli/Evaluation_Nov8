@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css"/>
+</head>
+<body>
+    <div id="container"></div>
+    <form class="login">
+        <input type="text" id="uname" placeholder="Enter your username"/>
+        <input type="password" id="pass" placeholder="Ente your password"/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
+<script type="module">
+import navbar from "./components/navbar.js";
+let container = document.getElementById("container");
+container.innerHTML = navbar();
+let login_details = document.querySelector(".login");
+let username = login_details.uname.value;
+let password = login_details.pass.value;
+</script>
