@@ -1,0 +1,22 @@
+{
+  "name": "evaluation_nov8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css:build": "tailwind build ./style.css -o ./dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasukomuravelli/Evaluation_Nov8.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vasukomuravelli/Evaluation_Nov8/issues"
+  },
+  "homepage": "https://github.com/vasukomuravelli/Evaluation_Nov8#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  }
+}
