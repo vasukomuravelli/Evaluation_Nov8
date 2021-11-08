@@ -3,8 +3,8 @@ function navbar(){
     <div class="navbar">
         <p>Menu</p>
         <div class = "user">
-            <p>Signup</p>
-            <p>Login</p>
+            <a href = "signup.html"><p>Signup</p></a>
+            <a href = "login.html"><p onclick = "login.html">Login</p></a>
         </div>
     </div>`
 }
