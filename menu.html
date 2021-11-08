@@ -5,30 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css"/>
 </head>
 <body>
+    <a href="cart.html" class="cart_button"><button>GO TO CART</button></a>
     <div id="block"></div>
 </body>
 </html>
 <script>
     let container = document.getElementById("block");
-    fetch("https://themealdb.com/api/json/v1/1/random.php").then((res)=>{
+    fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast").then((res)=>{
             return res.json();
         }).then((res)=>{
-            console.log(res.meals[0]);
-            showrandom(res.meals[0]);
+            console.log(res.meals);
+            showrandom(res.meals);
         })
-    function showrandom(meal){
+    function showrandom(list){
+        container.innerHTML = null;
+        let c = 1;
+        list.forEach(meal => { 
+        let div = document.createElement('div');
         let image = document.createElement('img');
         image.src = meal.strMealThumb;
-        let category = document.createElement('p');
-        category.innerText = meal.strCategory;
+        let button = document.createElement('button');
+        button.innerText = 'Add to cart';
+        button.onclick = function(){
+            orderFood(meal);
+        }
+        let price = document.createElement('p');
+        price.innerText = `Price : $ 10${c}`;
         let Title = document.createElement('h1');
         Title.innerText = meal.strMeal;
-        let inst = document.createElement('h5');
-        inst.innerText = 'Instructions';
-        let instructions = document.createElement('p');
-        instructions.innerText = meal.strInstructions;
-        container.append(Title,category,image,inst,instructions);
+        div.append(Title,image,button,price);
+        container.append(div);
+        c++;
+        });
+    }
+    function orderFood(p){
+        if(localStorage.getItem('food_cart')===null)
+        {
+            localStorage.setItem('food_cart',JSON.stringify([]));
+        }
+        let cart = JSON.parse(localStorage.getItem("food_cart"));
+        cart.push(p);
+        localStorage.setItem('food_cart',JSON.stringify(cart));
     }
 </script>
