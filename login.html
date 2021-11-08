@@ -11,8 +11,8 @@
     <div id="container"></div>
     <form class="login" onsubmit="login(event)">
         <input type="text" id="uname" placeholder="Enter your username"/>
-        <input type="password" id="pass" placeholder="Ente your password"/>
-        <input type="submit" />
+        <input type="password" id="pass" placeholder="Enter your password"/>
+        <input type="submit"/>
     </form>
 </body>
 </html>
@@ -34,9 +34,9 @@ function login(e)
         body : data,
         Headers : {"content-type": "Application/json"},
     }).then((res)=>{
-        return res.json();
-    }).then((res)=>{
-        console.log(res);
-    })
+            return res.json();
+        }).then((res)=>{
+            console.log(res);
+        })
 }
 </script>
