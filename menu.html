@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="block"></div>
+</body>
+</html>
+<script>
+    let container = document.getElementById("block");
+    fetch("https://themealdb.com/api/json/v1/1/random.php").then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            console.log(res.meals[0]);
+            showrandom(res.meals[0]);
+        })
+    function showrandom(meal){
+        let image = document.createElement('img');
+        image.src = meal.strMealThumb;
+        let category = document.createElement('p');
+        category.innerText = meal.strCategory;
+        let Title = document.createElement('h1');
+        Title.innerText = meal.strMeal;
+        let inst = document.createElement('h5');
+        inst.innerText = 'Instructions';
+        let instructions = document.createElement('p');
+        instructions.innerText = meal.strInstructions;
+        container.append(Title,category,image,inst,instructions);
+    }
+</script>
