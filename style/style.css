@@ -36,3 +36,19 @@ a{
     margin: auto;
     width: fit-content;
 }
+.login{
+    margin: auto;
+    width: max-content;
+}
+.login input{
+    margin: auto;
+    display: block;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 320px;
+    padding: 5%;
+}
+.login > input:nth-child(3){
+    margin: auto;
+    width: fit-content;
+}
